@@ -30,13 +30,13 @@ React(CRA) 기반의 개인 포트폴리오입니다.
 ## Project Structure
 
 src/
- ├─ components/
- ├─ pages/
- ├─ assets/
- ├─ styles/
- ├─ hooks/
- ├─ utils/
- └─ App.js
+  ├─ components/
+  ├─ pages/
+  ├─ assets/
+  ├─ styles/
+  ├─ hooks/
+  ├─ utils/
+  └─ App.js
 
 ## Project Structure
 npm install
