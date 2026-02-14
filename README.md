@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-React(CRA) 기반의 개인 포트폴리오입니다.  
+React(CRA) 기반의 개인 포트폴리오입니다(진행중).  
 상황과 상태 변화에 따라 UI가 전환되는 인터랙션 구조를 중심으로 구성했습니다.
 
 ## Overview
@@ -40,8 +40,8 @@ src/
  ```
 
 ## Project Structure
-npm install
-npm start
+- npm install
+- npm start
 
 ## Build & Deploy
 npm run build
