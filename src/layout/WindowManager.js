@@ -26,18 +26,22 @@ const WindowManager = () => {
 
   //창 열기 함수 
   const openWindow = ({type, title, data}) => {
-    const id = `${type}-${Date.now()}`;
-
-    const newWindow = {
-      id,
-      type,
-      title,
-      data : data || null,
-      minimized : false,
-      zIndex : ++zRef.current,
-    };
-
-    setWindows((prev) => [...prev, newWindow])
+    setWindows((prev) => {
+      const id = `${type}-${Date.now()}`;
+      const newWindow = {
+        id,
+        type,
+        title,
+        data: data || null,
+        minimized: false,
+        zIndex: ++zRef.current,
+        x: 120 + prev.length * 24,
+        y: 90 + prev.length * 24,
+        w: 560,
+        h: 420,
+      };
+      return [...prev, newWindow];
+    });
   };
 
   //창 닫기 함수 
@@ -71,6 +75,13 @@ const WindowManager = () => {
     );
   };
 
+  //위치 업데이트 함수
+  const updateWindowPosition = (id, position) => {
+    setWindows((prev) =>
+      prev.map((w) => (w.id === id ? { ...w, ...position } : w))
+    );
+  };
+
   return (
     <>
       {/* 바탕화면 : 아이콘 클릭 시 openWindow 함수 호출  */}
@@ -78,7 +89,7 @@ const WindowManager = () => {
       <Desktop onOpen={openWindow} />
 
       {/* 작업표시줄 */}
-      <Taskbar windows={windows} onclickItem={toggleMinimize} />
+      <Taskbar windows={windows} onClickItem={toggleMinimize} />
 
       {/* 창 레이어 */}
       {windows
@@ -86,11 +97,11 @@ const WindowManager = () => {
         .map((w) => (
           <WindowFrame
             key={w.id}
-            id={w.id}
-            title={w.title}
-            zIndex={w.zIndex}
+            win={w}
             onClose={() => closeWindow(w.id)}
             onFocus={() => focusWindow(w.id)}
+            onMinimize={() => toggleMinimize(w.id)}
+            onMove={updateWindowPosition}
           >
             {/* type 별 컴포넌트 지정 */}
             <div style={{ padding: "1rem" }}>{w.type} window</div>

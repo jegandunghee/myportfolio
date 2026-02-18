@@ -1,0 +1,83 @@
+@use "../styles/variables" as *;
+@use "../styles/font" as *;
+@use "../styles/mixin" as *;
+
+.window {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  background: $display-contents-dark;
+  border: $border-light;
+  box-shadow: $shadow-window;
+  color: $font-white;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.window__header {
+  height: rem(44);
+  padding: 0 rem(12);
+
+  @include flex(space-between, center, rem(10));
+  user-select: none;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.window__title {
+  @include text-s-bold;
+  color: $font-white;
+  max-width: 70%;
+  @include ellipsis;
+}
+
+.window__actions {
+  @include flex(flex-end, center, rem(8));
+
+  button {
+    width: rem(34);
+    height: rem(28);
+    border-radius: $radius-sm;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: $font-white;
+
+    @include button(rem(0), rem(0), $radius-sm);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  // 닫기 버튼만 살짝 강조하고 싶으면 (선택)
+  .window__close {
+    &:hover {
+      background: rgba(255, 80, 80, 0.22);
+      border-color: rgba(255, 80, 80, 0.25);
+    }
+  }
+}
+
+.window__body {
+  height: calc(100% - #{rem(44)});
+  padding: rem(16);
+
+  // 창 내부 컨텐츠 기본 텍스트 톤
+  color: $font-white70;
+}
