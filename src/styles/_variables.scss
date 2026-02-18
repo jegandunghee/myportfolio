@@ -1,0 +1,46 @@
+// breakpoints 
+$bp-mobile : 360px;
+$bp-tablet : 625px;
+$bp-desktop : 1440px;
+
+// 창 사이즈 
+$window-width : 700px;
+
+//color 
+$display-top-dark: #2F3947;            
+$display-top-light: #D9DAD9;           
+$display-contents-dark: rgba(0,0,0,0.7); 
+$display-contents-light: #FDFDFD;      
+
+$font-black: #222222;                  
+$font-gray: #555555;                   
+$font-white: #EEEEEE;                 
+$font-white70: rgba(255,255,255,0.7);   
+
+$point: #8695FB;                      
+$point-20: rgba(134,149,251,0.2);       
+
+//px를 rem으로 변환해주는 함수 지정 
+@function rem($px) {
+  @return ($px / 16) * 1rem;
+}
+
+//radius
+$radius-xs: rem(8);
+$radius-sm: rem(10);
+$radius-md: rem(12);
+$radius-lg: rem(14);
+$radius-xl: rem(18);
+$radius-xxl: rem(24);
+
+//shadow / border
+$shadow-window: 0 18px 60px rgba(0, 0, 0, 0.35);
+$shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+$border-light: 1px solid rgba(255, 255, 255, 0.12);
+$border-dark: 1px solid rgba(0, 0, 0, 0.18);
+
+//z-index
+$z-overlay: 1000;
+$z-window: 1100;
+$z-taskbar: 2000;

@@ -1,0 +1,70 @@
+
+@font-face {
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+// 기본 SUIT 적용
+@mixin suit($weight: 400) {
+  font-family: "SUIT";
+  font-weight: $weight;
+}
+
+// L (Bold / 48px)
+@mixin text-l {
+  @include suit(700);
+  font-size: 3rem;
+  line-height: 1.15;
+}
+
+// M-bold (SemiBold / 24px)
+@mixin text-m-bold {
+  @include suit(600);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+// M (Medium / 24px)
+@mixin text-m {
+  @include suit(500);
+  font-size: 1.5rem;
+  line-height: 1.55;
+}
+
+// S-bold (SemiBold / 16px)
+@mixin text-s-bold {
+  @include suit(600);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+// S (Medium / 16px)
+@mixin text-s {
+  @include suit(500);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+// Button (Medium / 12px)
+@mixin text-btn {
+  @include suit(500);
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}

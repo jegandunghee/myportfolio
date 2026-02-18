@@ -1,0 +1,95 @@
+@use "./variables" as *;
+@use "./font" as *;
+
+// 반응형 
+@mixin mq($to) {
+  @if $to == tablet {
+    @media (max-width: 1439px) { @content; } // desktop 미만
+  } @else if $to == mobile {
+    @media (max-width: 624px) { @content; }  // tablet 미만
+  }
+}
+
+/*  mq 사용방법
+.box {
+  width: 500px;
+
+  @include mq(mobile) {
+    width: 100%;
+  }
+}
+*/
+
+//레이아웃 
+
+//layout flex
+@mixin flex($just : center, $align : center, $gap : 0){
+  display: flex;
+  justify-content: $just;
+  align-items: $align;
+  gap: $gap;
+}
+
+//가운데 정렬
+@mixin center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//끝을 ...으로 자르기 (작업표시줄, 폴더, 카드) -> 사용할 때 고정 width 지정하기
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+//hover 
+@mixin hover($radius : $radius-md) {
+  border-radius: $radius;
+  transition: background-color 0.15s ease;
+  &:hover{
+    background-color: $point-20;
+  }
+}
+
+//버튼
+@mixin button($py: 0.6rem, $px: 1rem, $radius: 0.5rem){
+  padding : $py $px;
+  border-radius: $radius;
+  transition : background-color 0.15s ease, transform 0.15s ease;
+}
+
+//스택 태그 박스
+@mixin tag-box($bg: $point-20) {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  background: $bg;
+  line-height: 1;
+}
+
+//작업표시줄 버튼
+@mixin task-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 0.03125rem solid rgba(255, 255, 255, 0.4);
+  color: $font-white;
+
+  transition: background-color 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  //클릭했을 때 아래로 살짝 이동
+  &:active {
+    transform: translateY(1px);
+  }
+}
