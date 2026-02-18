@@ -50,11 +50,13 @@
     height: rem(28);
     border-radius: $radius-sm;
 
-    background: rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.12);
     color: $font-white;
 
-    @include button(rem(0), rem(0), $radius-sm);
+    @include flex(center, center);
+
+    transition: background-color 0.15s ease, transform 0.15s ease;
 
     &:hover {
       background: rgba(255, 255, 255, 0.16);
@@ -63,9 +65,16 @@
     &:active {
       transform: translateY(1px);
     }
+
+    //react-icon 크기 설정 
+    svg {
+      width: rem(16);
+      height: rem(16);
+      display: block;
+    }
   }
 
-  // 닫기 버튼만 살짝 강조하고 싶으면 (선택)
+  // 닫기 버튼 강조
   .window__close {
     &:hover {
       background: rgba(255, 80, 80, 0.22);

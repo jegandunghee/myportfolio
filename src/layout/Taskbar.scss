@@ -1,0 +1,45 @@
+@use "../styles/variables" as *;
+@use "../styles/font" as *;
+@use "../styles/mixin" as *;
+
+.taskbar {
+  position: fixed;
+  left: 50%;
+  bottom: rem(18);
+  transform: translateX(-50%);
+  z-index: $z-taskbar;
+
+  padding: rem(10);
+  border-radius: $radius-xl;
+
+  background: rgba(0, 0, 0, 0.35);
+  border: $border-light;
+  box-shadow: $shadow-soft;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  @include flex(center, center, rem(8));
+}
+
+.taskbar__item {
+  @include task-item;
+  @include text-btn;
+
+  max-width: rem(170);
+
+  .taskbar__title {
+    @include ellipsis;
+    max-width: rem(140);
+    display: inline-block;
+  }
+
+  &.is-min {
+    opacity: 0.6;
+  }
+
+  &.is-active {
+    opacity: 1;
+    outline: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}

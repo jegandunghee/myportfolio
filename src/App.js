@@ -1,8 +1,8 @@
-
+import WindowManager from "./layout/WindowManager";
 
 const App = () => {
   return (
-    <div>App</div>
+    <WindowManager />
   )
 }
 

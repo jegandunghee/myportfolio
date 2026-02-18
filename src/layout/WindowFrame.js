@@ -4,6 +4,7 @@
 // WindowManager.js(부모)에서 넘긴 props로 동작함
 
 import { useRef } from "react"
+import { FiMinus, FiX } from "react-icons/fi";
 import "./WindowFrame.scss";
 
 // win : 창 하나의 데이터 객체 { id, title, x, y, w, h, zIndex, minimized, type, data }
@@ -79,7 +80,7 @@ const WindowFrame = ({win, onFocus, onClose, onMinimize, onMove, children}) => {
               e.stopPropagation();
               onMinimize?.();
             }}
-            aria-label="minimize"> _
+            aria-label="minimize"> <FiMinus size={16} />
           </button>
           
           <button 
@@ -90,7 +91,7 @@ const WindowFrame = ({win, onFocus, onClose, onMinimize, onMove, children}) => {
             onClose?.();
           }}
           >
-            x
+            <FiX size={16} />
           </button>
         </div>
       </div>

@@ -1,0 +1,74 @@
+@use "../styles/variables" as *;
+@use "../styles/font" as *;
+@use "../styles/mixin" as *;
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.desktop__icons {
+  position: absolute;
+  left: rem(28);
+  top: rem(28);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: rem(104);
+  gap: rem(16);
+
+  padding: 0;
+  margin: 0;
+}
+
+.desktop__iconWrap {
+  list-style: none;
+}
+
+.desktop__icon {
+  width: rem(112);
+  height: rem(96);
+  border-radius: $radius-md;
+
+  @include flex(center, center, rem(10));
+  flex-direction: column;
+
+  background: transparent;
+  color: $font-white;
+
+  transition: background-color 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.10);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(134, 149, 251, 0.7);
+    outline-offset: 2px;
+  }
+}
+
+.desktop__iconImg {
+  color: $font-white;
+  opacity: 0.95;
+
+  //rect-icon 크기 지정 
+  svg {
+    width: rem(42);
+    height: rem(42);
+    display: block;
+  }
+}
+
+.desktop__iconLabel {
+  @include text-btn;
+  color: $font-white70;
+
+  max-width: rem(100);
+  @include ellipsis;
+}
