@@ -14,12 +14,13 @@
   border: $border-light;
   box-shadow: $shadow-window;
   color: $font-white;
+  // color: $font-gray;
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 
-.window__header {
+.window_header {
   height: rem(44);
   padding: 0 rem(12);
 
@@ -35,14 +36,15 @@
   }
 }
 
-.window__title {
+.window_title {
   @include text-s-bold;
+  // color: $font-gray;
   color: $font-white;
   max-width: 70%;
   @include ellipsis;
 }
 
-.window__actions {
+.window_actions {
   @include flex(flex-end, center, rem(8));
 
   button {
@@ -71,11 +73,12 @@
       width: rem(16);
       height: rem(16);
       display: block;
+      // color: yellow;
     }
   }
 
   // 닫기 버튼 강조
-  .window__close {
+  .window_close {
     &:hover {
       background: rgba(255, 80, 80, 0.22);
       border-color: rgba(255, 80, 80, 0.25);
@@ -83,7 +86,7 @@
   }
 }
 
-.window__body {
+.window_body {
   height: calc(100% - #{rem(44)});
   padding: rem(16);
 

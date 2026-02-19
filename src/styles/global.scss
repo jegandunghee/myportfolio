@@ -37,3 +37,20 @@ button {
   background: transparent;
   cursor: pointer;
 }
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__header {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.page__body {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}

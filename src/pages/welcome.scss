@@ -1,0 +1,54 @@
+@use "../styles/variables" as *;
+@use "../styles/font" as *;
+@use "../styles/mixin" as *;
+
+.welcome {
+  width: 100%;
+  height: 100%;
+  padding: rem(40);
+
+  @include flex(center, center, 0);
+  text-align: center;
+}
+
+.welcome_inner {
+  max-width: rem(520);
+}
+
+.welcome_title {
+  margin-bottom: rem(24);
+
+  font-size: rem(36);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+
+  color: $font-white;
+
+  text-shadow: 0 0 rem(18) rgba(255,255,255,0.18);
+}
+
+.welcome_role {
+  margin-bottom: rem(18);
+  @include text-btn;
+  color: rgba(255,255,255,0.85);
+}
+
+.welcome_desc {
+  margin-bottom: rem(14);
+  @include text-s;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.75);
+}
+
+.welcome_cta {
+  margin-top: rem(26);
+  padding: rem(10) rem(18);
+
+  border-radius: rem(18);
+  background: rgba(255,255,255,0.08);
+  border: $border-light;
+
+  @include text-btn;
+  color: rgba(255,255,255,0.9);
+}

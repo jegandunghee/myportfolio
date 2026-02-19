@@ -14,7 +14,7 @@ const WindowManager = () => {
   const [welcomeClosed, setWelcomeClosed] = useState(
     localStorage.getItem("welcomeClosed") === "1"
   );
-  //처음 한 번만 welcome 창 자동 오픈
+  //처음 한 번만 welcome 모달 자동 오픈
   useEffect(() => {
     if (!welcomeClosed) openWindow({ type: "welcome", title: "Welcome" });
   }, [welcomeClosed]);
@@ -35,34 +35,65 @@ const WindowManager = () => {
   //z-index 관리용 
   const zRef = useRef(100);
 
-  //창 열기 함수 
-  const openWindow = ({type, title, data}) => {
+  //모달 열기 함수 
+  // 처음 모달이 열릴 때 화면 중앙에 오도록 설정 
+  // project 모달 path 추가 
+  const openWindow = ({type, title, data, path}) => {
     setWindows((prev) => {
+
+      //같은 창이 열려있는지 확인하기 
+      const existing = prev.find((w) => w.type === type);
+
+      //열려있으면 새로 열지 않고 앞으로 올리기 
+      if(existing){
+        return prev.map((w) => 
+          w.type === type
+            ?{...w, minimized: false, zIndex: ++zRef.current}
+            :w
+        );
+      }
+
+
       const id = `${type}-${Date.now()}`;
+
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      const w0 = 560;
+      const h0 = 420;
+      const bottomSafe = 90;
+
+      const baseX = Math.max(0, (vw - w0) /2);
+      const baseY = Math.max(8, (vh - bottomSafe - h0) /2);
+
+      const offset = prev.length * 28;
+
+      
       const newWindow = {
         id,
         type,
         title,
         data: data || null,
+        path : path || undefined,
         minimized: false,
         zIndex: ++zRef.current,
-        x: 120 + prev.length * 24,
-        y: 90 + prev.length * 24,
-        w: 560,
-        h: 420,
+        x: baseX + offset,
+        y: baseY + offset,
+        w: w0,
+        h: h0,
       };
       return [...prev, newWindow];
     });
   };
 
-  //창 닫기 함수 
+  //모달 닫기 함수 
   const closeWindow = (id) => {
     // 특정 id 창을 배열에서 제거
     setWindows((prev) => {
       const target = prev.find((w) => w.id === id);
 
       //welcome 창이면 다시 못 열도록 
-      if(target?.type === "wlecome"){
+      if(target?.type === "welcome"){
         setWelcomeClosed(true);
         localStorage.setItem("welcomeClosed","1");
       }
@@ -71,7 +102,7 @@ const WindowManager = () => {
     });
   };
 
-  //창 앞으로 
+  //모달 앞으로 
   const focusWindow = (id) => {
     setWindows((prev) => 
       prev.map((w) => 
@@ -80,7 +111,7 @@ const WindowManager = () => {
     );
   };
 
-  //최소화 토글 (작업 표시줄 클릭 용도)
+  //모달 최소화 토글 (작업 표시줄 클릭 용도)
   const toggleMinimize = (id) => {
     setWindows((prev) => 
       prev.map((w) => {
@@ -96,12 +127,44 @@ const WindowManager = () => {
     );
   };
 
-  //위치 업데이트 함수
-  const updateWindowPosition = (id, position) => {
+  // 모달 위치 업데이트 함수
+  const updateWindowPosition = (id, x, y) => {
     setWindows((prev) =>
-      prev.map((w) => (w.id === id ? { ...w, ...position } : w))
+      prev.map((w) => (w.id === id ? { ...w,x,y } : w))
     );
   };
+
+  //project 폴더 클릭 시 경로 추가되도록 설정 
+  const goProjectsInto = (id, key) => {
+    setWindows((prev) => 
+      prev.map((w) => 
+        w.id === id
+          ? {...w, path:[...(w.path || ["projects"]), key],
+              minimized:false, zIndex : ++zRef.current}
+          : w
+      )
+    );
+  };
+
+  //project 모달 내 뒤로가기 기능 
+  const projectsBack = (id) => {
+    setWindows((prev) => 
+      prev.map((w) => {
+        if(w.id !== id) return w;
+
+        const path = w.path || ["projects"];
+        //첫 화면이면 그대로 유지 
+        if(path.length <= 1) return w;
+
+        //테스트
+        console.log("BACK 호출됨:", id);
+        console.log("현재 path:", path);
+
+        return {...w, path: path.slice(0, -1), zIndex: ++zRef.current};
+      })
+    );
+  };
+
 
   return (
     <>
@@ -122,12 +185,10 @@ const WindowManager = () => {
             onClose={() => closeWindow(w.id)}
             onFocus={() => focusWindow(w.id)}
             onMinimize={() => toggleMinimize(w.id)}
-            onMove={updateWindowPosition}
-          >
-            {/* type 별 컴포넌트 지정 */}
-            <div style={{ padding: "1rem" }}>{w.type} window</div>
-
-          </WindowFrame>
+            onMove={(x,y) => updateWindowPosition(w.id, x,y)}
+            goProjectsInto={goProjectsInto}
+            projectsBack={projectsBack}
+          />
         ))}
     </>
     

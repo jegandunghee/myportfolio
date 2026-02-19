@@ -6,29 +6,31 @@
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
+  background-color: #0b0110c7;
 }
 
-.desktop__icons {
+.desktop_icons {
   position: absolute;
-  left: rem(28);
-  top: rem(28);
+  left: rem(50);
+  top: rem(150);
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: rem(104);
+  grid-auto-rows: rem(150);
   gap: rem(16);
 
   padding: 0;
   margin: 0;
 }
 
-.desktop__iconWrap {
+.desktop_iconWrap {
   list-style: none;
 }
 
-.desktop__icon {
-  width: rem(112);
-  height: rem(96);
+.desktop_icon {
+  width: rem(160);
+  height: rem(125);
   border-radius: $radius-md;
 
   @include flex(center, center, rem(10));
@@ -40,7 +42,7 @@
   transition: background-color 0.15s ease, transform 0.15s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.10);
+    background-color: $point-20;
   }
 
   &:active {
@@ -53,22 +55,63 @@
   }
 }
 
-.desktop__iconImg {
+.desktop_iconImg {
   color: $font-white;
   opacity: 0.95;
 
-  //rect-icon 크기 지정 
   svg {
-    width: rem(42);
-    height: rem(42);
+    width: rem(58);
+    height: rem(58);
     display: block;
+    color: #FFDC5E;
   }
 }
 
-.desktop__iconLabel {
-  @include text-btn;
-  color: $font-white70;
+.desktop_iconLabel {
+  @include text-s;
+  color: $font-white;
 
-  max-width: rem(100);
+  min-height: rem(38);
+  padding: 0 rem(16);
+
+  border-radius: rem(24);
+
+  background: rgba(17, 17, 17, 0.2);
+
+  border: $border-light;
+
+  // glass 효과
+  backdrop-filter: blur(rem(16));
+  -webkit-backdrop-filter: blur(rem(16));
+
+  @include flex(center, center, 0);
+
+  // 텍스트 길면 ...처리 
+  max-width: rem(144); 
   @include ellipsis;
+
+  // 깊이감 주기
+  box-shadow: $shadow-soft, inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+//glass 효과의 하이라이트 효과
+.desktop_iconLabel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.06) 35%,
+    rgba(255, 255, 255, 0.07) 60%
+  );
+
+  opacity: 0.7; 
+  mix-blend-mode: screen;
 }

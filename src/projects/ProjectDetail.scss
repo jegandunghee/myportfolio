@@ -1,0 +1,109 @@
+@use "../styles/variables" as *;
+@use "../styles/mixin" as *;
+@use "../styles/font" as *;
+
+.pDetail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pDetail__header {
+  height: rem(56);
+  padding: 0 rem(12);
+  @include flex(flex-start, center, rem(10));
+  border-bottom: $border-light;
+}
+
+.pDetail__back {
+  width: rem(34);
+  height: rem(30);
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.06);
+  @include flex(center, center);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.09);
+  }
+}
+
+.pDetail__titleWrap {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(2);
+}
+
+.pDetail__crumb {
+  @include text-btn;
+  color: $font-white70;
+  @include ellipsis;
+}
+
+.pDetail__sep {
+  margin: 0 rem(6);
+  opacity: 0.6;
+}
+
+.pDetail__title {
+  @include text-s-bold;
+  color: $font-white;
+  @include ellipsis;
+}
+
+.pDetail__body {
+  flex: 1;
+  overflow: auto;
+  padding: rem(14) rem(12);
+}
+
+.pDetail__desc {
+  @include text-s;
+  color: $font-white;
+  opacity: 0.9;
+  margin-bottom: rem(14);
+  line-height: 1.55;
+}
+
+.pDetail__row {
+  display: grid;
+  grid-template-columns: rem(72) 1fr;
+  gap: rem(10);
+  padding: rem(10) 0;
+  border-bottom: $border-light;
+}
+
+.pDetail__key {
+  @include text-btn;
+  color: $font-white70;
+}
+
+.pDetail__val {
+  @include text-s;
+  color: $font-white;
+  opacity: 0.9;
+  word-break: break-word;
+}
+
+.pDetail__link {
+  @include flex(flex-start, center, rem(6));
+  @include text-s;
+  color: $font-white;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.pDetail__linkText {
+  @include ellipsis;
+  max-width: 100%;
+}
+
+.pDetail__empty {
+  padding: rem(18) rem(12);
+  @include text-s;
+  color: $font-white70;
+}

@@ -1,0 +1,37 @@
+@use "../styles/variables" as *;
+@use "../styles/mixin" as *;
+@use "../styles/font" as *;
+
+.pFolders {
+  padding: rem(16);
+  @include flex(flex-start, flex-start, rem(24));
+  flex-wrap: wrap;
+}
+
+.pFolders__item {
+  width: rem(110);
+  padding: rem(10) rem(8);
+  border-radius: $radius-md;
+
+  @include flex(center, center, rem(8));
+  flex-direction: column;
+
+  @include hover($radius-md);
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.pFolders__icon {
+  color: $font-white;
+  opacity: 0.95;
+  color: #FFDC5E;
+}
+
+.pFolders__label {
+  @include text-s;
+  color: $font-white;
+  opacity: 0.9;
+  text-transform: lowercase;
+}

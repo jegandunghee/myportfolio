@@ -1,0 +1,115 @@
+@use "../styles/variables" as *;
+@use "../styles/mixin" as *;
+@use "../styles/font" as *;
+
+.pList {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pList__header {
+  height: rem(44);
+  padding: 0 rem(12);
+  @include flex(flex-start, center, rem(10));
+  border-bottom: $border-light;
+}
+
+.pList__back {
+  width: rem(34);
+  height: rem(30);
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.06);
+  @include flex(center, center);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.09);
+  }
+}
+
+.pList__crumb {
+  @include text-s;
+  color: $font-white;
+  opacity: 0.92;
+  @include ellipsis;
+}
+
+.pList__sep {
+  margin: 0 rem(6);
+  opacity: 0.6;
+}
+
+.pList__table {
+  flex: 1;
+  overflow: auto;
+}
+
+.pList__row {
+  width: 100%;
+  height: rem(40);
+  padding: 0 rem(12);
+  display: grid;
+  grid-template-columns: 1fr rem(160);
+  align-items: center;
+  text-align: left;
+}
+
+.pList__row--head {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: $border-light;
+  @include text-btn;
+  color: $font-white70;
+}
+
+.pList__row--item {
+  border-radius: $radius-sm;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.pList__cell--name {
+  @include flex(flex-start, center, rem(10));
+  min-width: 0;
+}
+
+.pList__icon {
+  opacity: 0.9;
+  color: $font-white;
+}
+
+.pList__name {
+  @include text-s;
+  color: $font-white;
+  @include ellipsis;
+}
+
+.pList__badge {
+  margin-left: 8px;
+  @include text-s;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: $font-white70;
+  white-space: nowrap;
+}
+
+.pList__cell--date {
+  @include text-btn;
+  color: $font-white70;
+  text-align: right;
+}
+
+.pList__empty {
+  padding: rem(18) rem(12);
+  @include text-s;
+  color: $font-white70;
+}
