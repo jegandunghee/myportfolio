@@ -25,6 +25,10 @@
   &:hover {
     background: rgba(255, 255, 255, 0.09);
   }
+
+  svg {
+    color: $font-white;
+  }
 }
 
 .pDetail__titleWrap {
