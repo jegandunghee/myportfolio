@@ -2,6 +2,7 @@
 @use "../styles/mixin" as *;
 @use "../styles/font" as *;
 
+// BEM 형식으로 className 작성함 
 .pFolders {
   padding: rem(16);
   @include flex(flex-start, flex-start, rem(24));
