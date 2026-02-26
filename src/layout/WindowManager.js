@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react"
 import Desktop from "./Desktop";
 import WindowFrame from "./WindowFrame";
 import Taskbar from "./Taskbar";
+import Overlay from "./Overlay";
+import Playground from "../pages/Playground";
 
 
 const WindowManager = () => {
@@ -35,6 +37,11 @@ const WindowManager = () => {
   //z-index 관리용 
   const zRef = useRef(100);
 
+  //welcome 모달 열렸을 때 계산(딤 처리 위함)
+  const isWelcomeOpen = windows.some(
+    (i) => i.type === "welcome" && !i.minimized
+  );
+
   //모달 열기 함수 
   // 처음 모달이 열릴 때 화면 중앙에 오도록 설정 
   // project 모달 path 추가 
@@ -59,12 +66,23 @@ const WindowManager = () => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
 
-      const w0 = 560;
-      const h0 = 420;
+      //모달 크기 지정 
+      const SIZE_MODAL = {
+        welcome : {w:720, h: 560},
+        about : {w:1000, h: 750},
+        playground : {w:1000, h: 750},
+        projects : {w:1000, h: 750},
+        contact : {w:1000, h: 750}
+      };
+
+      const {w : w0, h: h0} = SIZE_MODAL[type] || {w : 1000, h:750};
+      
+      // 모달이 화면 밖으로 나가지 않도록 지정 
+      // 화면보다 크면 자동으로 줄여서 밖으로 안나가도록 
       const bottomSafe = 90;
 
       const baseX = Math.max(0, (vw - w0) /2);
-      const baseY = Math.max(8, (vh - bottomSafe - h0) /2);
+      const baseY = Math.max(0, (vh - bottomSafe - h0) /2);
 
       const offset = prev.length * 28;
 
@@ -79,8 +97,8 @@ const WindowManager = () => {
         zIndex: ++zRef.current,
         x: baseX + offset,
         y: baseY + offset,
-        w: w0,
-        h: h0,
+        w : w0,
+        h : h0,
       };
       return [...prev, newWindow];
     });
@@ -171,6 +189,9 @@ const WindowManager = () => {
       {/* 바탕화면 : 아이콘 클릭 시 openWindow 함수 호출  */}
       {/* Desktop 컴포넌트 내에서 아이콘 클릭 시 props로 넘긴 함수 openwindow가 실행 */}
       <Desktop onOpen={openWindow} welcomeClosed={welcomeClosed}/>
+
+      {/* welcome 모달 열릴 때 딤 처리 */}
+      {isWelcomeOpen && <Overlay/>}
 
       {/* 작업표시줄 */}
       <Taskbar windows={windows} onClickItem={toggleMinimize} />
