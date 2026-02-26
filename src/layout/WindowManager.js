@@ -6,7 +6,7 @@ import Desktop from "./Desktop";
 import WindowFrame from "./WindowFrame";
 import Taskbar from "./Taskbar";
 import Overlay from "./Overlay";
-import Playground from "../pages/Playground";
+// import Playground from "../pages/Playground";
 
 
 const WindowManager = () => {

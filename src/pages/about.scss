@@ -1,0 +1,211 @@
+@use "../styles/variables" as *;
+@use "../styles/font" as *;
+@use "../styles/mixin" as *;
+
+.about {
+  // page__body + about__body 같이 쓰는 전용 레이아웃
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(28);
+    color: $font-white;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: rem(260) 1fr;
+    gap: rem(28);
+    align-items: start;
+
+    @include mq(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // 프로필 영역
+  &__profile {
+    display: flex;
+    flex-direction: column;
+    gap: rem(14);
+  }
+
+  &__avatar {
+    width: 100%;
+    max-width: rem(220);
+    aspect-ratio: 1 / 1;
+    border-radius: $radius-xl;
+    background: rgba(255, 255, 255, 0.06);
+    border: $border-light;
+    overflow: hidden;
+    box-shadow: $shadow-soft;
+  }
+
+  // 나중에 이미지 넣을 때 사용할 클래스
+  &__avatarImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__nameWrap {
+    display: flex;
+    flex-direction: column;
+    gap: rem(6);
+  }
+
+  &__name {
+    @include text-m-bold;
+  }
+
+  &__role {
+    @include text-s;
+    color: $font-white70;
+  }
+
+  // 소개 영역
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+  }
+
+  &__headline {
+    @include text-l;
+    letter-spacing: -0.02em;
+
+    @include mq(mobile) {
+      font-size: 2.2rem; // text-l(3rem) 너무 크면 모바일에서만 다운
+    }
+  }
+
+  &__sub {
+    @include text-s;
+    color: $font-white70;
+  }
+
+  &__desc {
+    margin-top: rem(6);
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+
+    p {
+      @include text-s;
+      color: rgba(255, 255, 255, 0.86);
+    }
+  }
+
+  // 섹션 공통
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+  }
+
+  &__label {
+    @include text-btn;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.14em;
+  }
+
+  // keywords
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10);
+  }
+
+  &__chip {
+    @include text-btn;
+    @include tag-box(rgba(255, 255, 255, 0.08));
+    border: $border-light;
+    color: rgba(255, 255, 255, 0.92);
+
+    // 니 hover 믹스인 실제로 사용
+    @include hover($radius-sm);
+  }
+
+  &__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  // skills cards
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(16);
+
+    @include mq(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__cta {
+    margin-top: rem(10);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    @include text-s-bold;
+    @include button(rem(10), rem(14), $radius-lg);
+    border: $border-light;
+    background: rgba(255, 255, 255, 0.06);
+    color: $font-white;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.aboutCard {
+  padding: rem(18);
+  border-radius: $radius-xl;
+  background: rgba(255, 255, 255, 0.05);
+  border: $border-light;
+  box-shadow: $shadow-soft;
+
+  &--wide {
+    grid-column: 1 / -1;
+  }
+
+  &__head {
+    @include flex(flex-start, center, rem(10));
+    margin-bottom: rem(12);
+  }
+
+  &__icon {
+    width: rem(36);
+    height: rem(36);
+    border-radius: $radius-md;
+    background: $point-20;
+    color: $font-white;
+    @include flex(center, center, 0);
+  }
+
+  &__title {
+    @include text-s-bold;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10);
+  }
+}
+
+.aboutTag {
+  @include text-btn;
+  @include tag-box(rgba(0, 0, 0, 0.22));
+  border: $border-dark;
+  color: rgba(255, 255, 255, 0.88);
+
+  @include hover($radius-sm);
+}
