@@ -1,3 +1,22 @@
+@use "./variables" as *;
+
+
+// 반응형 폰트 mixin설정 
+@mixin _size($name) {
+  // '지도($size-map)'에서 '이름($name)'에 맞는 정보를 통째로 가져옵니다.
+  $info: map-get($size-map, $name); 
+  
+  font-size: rem(map-get($info, pc)); // 데스크탑 사이즈
+
+  @media (max-width: #{$bp-desktop - 1px}) {
+    font-size: rem(map-get($info, tab)); // 테블릿 사이즈
+  }
+  @media (max-width: #{$bp-tablet - 1px}) {
+    font-size: rem(map-get($info, mob)); // 모바일 사이즈
+  }
+
+  //@include _size(xl) 식으로 사용 가능
+}
 
 @font-face {
   font-family: "SUIT";
@@ -26,45 +45,13 @@
   font-weight: $weight;
 }
 
-// L (Bold / 48px)
-@mixin text-l {
-  @include suit(700);
-  font-size: 3rem;
-  line-height: 1.15;
-}
+@mixin text-xl { @include suit(900); @include _size(xl); line-height: 1.2; }
+@mixin text-l  { @include suit(700); @include _size(l); line-height: 1.15; }
 
-// M-bold (SemiBold / 24px)
-@mixin text-m-bold {
-  @include suit(600);
-  font-size: 1.5rem;
-  line-height: 1.25;
-}
+@mixin text-m      { @include suit(500); @include _size(m); line-height: 1.55; }
+@mixin text-m-bold { @include suit(600); @include _size(m); line-height: 1.55; }
 
-// M (Medium / 24px)
-@mixin text-m {
-  @include suit(500);
-  font-size: 1.5rem;
-  line-height: 1.55;
-}
+@mixin text-s      { @include suit(500); @include _size(s); line-height: 1.6; }
+@mixin text-s-bold { @include suit(600); @include _size(s); line-height: 1.6; }
 
-// S-bold (SemiBold / 16px)
-@mixin text-s-bold {
-  @include suit(600);
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-// S (Medium / 16px)
-@mixin text-s {
-  @include suit(500);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-// Button (Medium / 12px)
-@mixin text-btn {
-  @include suit(500);
-  font-size: 0.75rem;
-  line-height: 1;
-  letter-spacing: 0.01em;
-}
+@mixin text-btn { @include suit(500); @include _size(btn); line-height: 1; }

@@ -44,3 +44,12 @@ $border-dark: 1px solid rgba(0, 0, 0, 0.18);
 $z-overlay: 1000;
 $z-window: 1100;
 $z-taskbar: 2000;
+
+// 반응형 폰트 사이즈
+$size-map: (
+  xl: (pc: 64, tab: 56, mob: 36),
+  l:  (pc: 48, tab: 36, mob: 24),
+  m:  (pc: 24, tab: 24, mob: 16),
+  s:  (pc: 16, tab: 16, mob: 10),
+  btn:(pc: 12, tab: 12, mob: 8)
+);

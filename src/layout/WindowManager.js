@@ -81,9 +81,11 @@ const WindowManager = () => {
       // 화면보다 크면 자동으로 줄여서 밖으로 안나가도록 
       const bottomSafe = 90;
 
+      //모달 오픈 시 가운데 정렬하기
       const baseX = Math.max(0, (vw - w0) /2);
       const baseY = Math.max(0, (vh - bottomSafe - h0) /2);
 
+      //계단식 모달 정렬하기 
       const offset = prev.length * 28;
 
       
@@ -198,15 +200,15 @@ const WindowManager = () => {
 
       {/* 창 레이어 */}
       {windows
-        .filter((w) => !w.minimized)
+        .filter((w) => !w.minimized) // 최소화되지 않은 모달만 선택 
         .map((w) => (
           <WindowFrame
             key={w.id}
-            win={w}
+            win={w} //모달의 모든 정보(x,y,w,h)를 전달
             onClose={() => closeWindow(w.id)}
             onFocus={() => focusWindow(w.id)}
             onMinimize={() => toggleMinimize(w.id)}
-            onMove={(x,y) => updateWindowPosition(w.id, x,y)}
+            onMove={(x,y) => updateWindowPosition(w.id, x,y)} //위치 업데이트
             goProjectsInto={goProjectsInto}
             projectsBack={projectsBack}
           />
