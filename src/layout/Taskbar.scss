@@ -7,13 +7,11 @@
   height: rem(50);
   position: fixed;
   left: 50%;
-  bottom: rem(0);
+  bottom: 0;
   transform: translateX(-50%);
   z-index: $z-taskbar;
 
   padding: rem(10);
-  // margin: rem(8);
-  // border-radius: $radius-xl;
 
   background: rgba(0, 0, 0, 0.35);
   border: $border-light;
@@ -22,7 +20,12 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
-  @include flex(flex-start, center, rem(8));
+  //왼쪽 아이콘, 오른쪽 날짜,시간 정렬하기
+  @include flex(space-between, center);
+}
+
+.taskbar__left{
+  @include flex(flex-start, center, rem(8))
 }
 
 .taskbar_item {
@@ -43,6 +46,33 @@
 
   &.is-active {
     opacity: 1;
-    outline: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.15);
+    outline: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.taskbar__right {
+  @include flex(flex-end, center);
+}
+
+.taskbar__clock {
+  // 시간과 날짜를 세로 정렬
+  @include flex(center, center, rem(2));
+  flex-direction: column;
+  line-height: 1.2;
+
+  .clock__time {
+    @include text-btn;
+    color: $font-white;
+  }
+
+  .clock__date {
+    @include suit(500);
+    font-size: rem(10);
+    color: $font-white70;
+
+    @include mq(mobile) {
+      display: none;
+    }
   }
 }
