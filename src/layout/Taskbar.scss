@@ -56,8 +56,8 @@
 }
 
 .taskbar__clock {
-  // 시간과 날짜를 세로 정렬
-  @include flex(center, center, rem(2));
+  // 시간,날짜 세로 정렬
+  @include flex(center, center, rem(5));
   flex-direction: column;
   line-height: 1.2;
 
