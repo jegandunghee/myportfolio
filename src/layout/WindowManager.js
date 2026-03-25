@@ -1,5 +1,4 @@
-// 열린 창 목록, active 창, z-index, 최소화 및 이동 상태를 관리하는 윈도우 상태 관리 훅
-// Desktop(바탕화면), WindowFrame(창 UI), Taskbar(작업표시줄)를 조합해서 OS 레이아웃 만드는 컴포넌트
+// 화면 구성 컴포넌트
 
 import useWindowManagement from "../hooks/useWindowManagement";
 import Desktop from "./Desktop";
