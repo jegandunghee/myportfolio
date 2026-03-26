@@ -31,7 +31,7 @@ const WindowFrame = ({win, onFocus, onClose, onMinimize, onMove,goProjectsInto,p
 
   //테스트 
   // console.log('현재 win 객체 : ', win);
-  console.log("현재 경로 :",win.path)
+  // console.log("현재 경로 :",win.path)
 
 
   // 내용 매핑하기 
@@ -64,7 +64,7 @@ const WindowFrame = ({win, onFocus, onClose, onMinimize, onMove,goProjectsInto,p
     window.addEventListener("mouseup", handleUp);
   };
 
-  //모달이 화면 밖으로 나가지 않도록 제한
+  //드래그로 모달이 화면 밖으로 나가지 않도록 제한
   const clamp = (v, min, max) => Math.min(Math.max(v,min),max);
 
   const handleMove = (e) => {
