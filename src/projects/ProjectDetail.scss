@@ -2,10 +2,11 @@
 @use "../styles/mixin" as *;
 @use "../styles/font" as *;
 
+// project detail 기본 
+
 .pDetail {
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  @include flex($just: flex-start, $align: stretch, $dir: column);
 }
 
 .pDetail__header {
@@ -33,9 +34,7 @@
 
 .pDetail__titleWrap {
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: rem(2);
+  @include flex($just: center, $align: flex-start, $gap: rem(2), $dir: column);
 }
 
 .pDetail__crumb {
@@ -110,4 +109,199 @@
   padding: rem(18) rem(12);
   @include text-s;
   color: $font-white70;
+}
+
+// 팀프로젝트 레이아웃 
+.pDetail__team {
+  @include flex($just: flex-start, $align: flex-start, $gap: rem(40), $dir: column); 
+  padding-bottom: rem(60);
+  width:100%;
+
+  @include mq(mobile) {
+    gap: rem(24);
+  }
+}
+
+// 공통 섹션 타이틀
+.pDetail__secTitle {
+  @include text-m-bold;
+  color: $font-white;
+  margin-bottom: rem(20);
+  border-left: 4px solid $point; 
+  padding-left: rem(12);
+
+  @include mq(mobile) {
+    margin-bottom: rem(12);
+  }
+}
+
+//  담당 역할 & 주요 기능 카드
+.pDetail__cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 기본 2단
+  gap: rem(16);
+
+  @include mq(mobile) {
+    grid-template-columns: 1fr; // 모바일 1단
+  }
+}
+
+.pDetail__card {
+  @include tag-box(rgba(255, 255, 255, 0.05)); 
+  display: block; 
+  padding: rem(20);
+  border: $border-light;
+  border-radius: $radius-md;
+  height: 100%;
+
+  .pDetail__cardTitle {
+    @include text-s-bold;
+    color: $font-white;
+    margin-bottom: rem(10);
+  }
+
+  .pDetail__cardDesc {
+    @include text-s;
+    color: $font-white70;
+    line-height: 1.6;
+  }
+}
+
+// 태그 및 메타 정보
+.pDetail__tags {
+  @include flex(flex-start, center, rem(8));
+  flex-wrap: wrap;
+  margin: rem(16) 0;
+}
+
+.pDetail__tag {
+  @include tag-box($point-20); 
+  @include text-btn;
+  color: $point; 
+}
+
+.pDetail__meta {
+  @include flex(flex-start, center, rem(16));
+  @include text-s;
+  color: $font-white70;
+  margin-bottom: rem(24);
+}
+
+//목업
+.pDetail__mockupWrap {
+  @include flex(stretch, stretch, rem(20));
+  position: relative;
+  margin-top: rem(30);
+  padding: rem(20);
+  background: rgba(255, 255, 255, 0.03); 
+  border-radius: $radius-lg;
+  // 최소 높이 지정하기
+  min-height: rem(400);
+
+  @include mq(mobile) {
+    @include flex(center, center, rem(12), column);
+    padding: rem(12);
+    min-height: auto;
+  }
+}
+
+.pDetail__mockup {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-md;
+  
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
+    // background-color: transparent;
+  }
+
+  //데스크탑 목업 
+  &--main {
+    flex: 1;
+    z-index: 1;
+    height: 100%;
+
+    @include mq(mobile) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  // 모바일 목업
+  &--sub {
+    width: 25%;
+    z-index: 2;
+    position: absolute;
+    bottom: rem(20);
+    right: rem(-10);
+    aspect-ratio: 9/16;
+
+    @include mq(mobile) {
+      position: relative; 
+      width: 50%;
+      bottom: auto;
+      left: auto;
+      margin-top: rem(16);
+    }
+  }
+}
+
+
+// 트러블슈팅
+.pDetail__ts {
+  background: rgba(255, 255, 255, 0.03);
+  padding: rem(24);
+  border-radius: $radius-lg;
+  margin-bottom: rem(16);
+
+  .pDetail__tsLabel {
+    @include text-btn;
+    color: $point; 
+    margin-bottom: rem(8);
+  }
+
+  .pDetail__tsContent {
+    p {
+      margin-top: rem(12);
+      @include text-s;
+      color: $font-white70;
+      
+      strong { color: $font-white; font-weight: 600; }
+    }
+  }
+  
+  .pDetail__takeaway {
+    @include tag-box($point-20); 
+    display: block;
+    padding: rem(16);
+    margin-top: rem(20);
+    @include text-s;
+    line-height: 1.6;
+  }
+}
+
+// 링크 버튼
+.pDetail__links {
+  @include flex(flex-start, center, rem(12));
+
+  .pDetail__btn {
+    @include button;
+    @include text-btn;
+    border: $border-light;
+    color: $font-white;
+
+    &--primary {
+      background: $point-20;
+      border: none;
+      &:hover { background: darken($point, 10%); }
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
 }

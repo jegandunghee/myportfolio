@@ -1,3 +1,6 @@
+import zioMokupDesk from "../../../assets/images/zari-desk.png";
+import zioMokupMobile from "../../../assets/images/zari-mobile.png"
+
 export const zariData = {
   id: "zari",
   type: "team",
@@ -60,8 +63,8 @@ export const zariData = {
   ],
   // 이미지 경로 (목업 이미지)
   images: {
-    thumbnail: "/assets/images/zari-thumb.png",
-    mockup: "/assets/images/zari-mockup.png",
-    architecture: "/assets/images/zari-arch.png",
+    desk : zioMokupDesk,
+    mobile : zioMokupMobile
+
   },
 };

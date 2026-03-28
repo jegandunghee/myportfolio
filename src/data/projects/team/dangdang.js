@@ -1,3 +1,6 @@
+import dangdangDesk from "../../../assets/images/dangdang-desk.png";
+import dangdangMobile from "../../../assets/images/dangdang-mobile.png";
+
 export const dangdangData = {
   id: "dangdang",
   type: "team",
@@ -49,6 +52,7 @@ export const dangdangData = {
     }
   ],
   images: {
-    mockup: "이미지 경로" 
+    desk: dangdangDesk,
+    mobile: dangdangMobile 
   }
 };

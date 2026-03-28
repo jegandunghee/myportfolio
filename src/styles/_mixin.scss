@@ -23,11 +23,12 @@
 //레이아웃 
 
 //layout flex
-@mixin flex($just : center, $align : center, $gap : 0){
+@mixin flex($just : center, $align : center, $gap : 0, $dir : row){
   display: flex;
   justify-content: $just;
   align-items: $align;
   gap: $gap;
+  flex-direction: $dir;
 }
 
 //가운데 정렬
