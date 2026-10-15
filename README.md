@@ -5,7 +5,8 @@ React(CRA) 기반으로 컴포넌트 모듈화와 반응형 웹 표준을 고려
 
 ---
 
-## 🌐 Live Demo
+## 🌐 링크
+
 - **배포 링크:** [바로가기](https://portfolio-jegandunghee.vercel.app)
 
 ---
