@@ -1,0 +1,94 @@
+@use "../styles/variables" as *;
+@use "../styles/font" as *;
+@use "../styles/mixin" as *;
+
+.window {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  background: $display-contents-dark;
+  border: $border-light;
+  box-shadow: $shadow-window;
+  color: $font-white;
+  // color: $font-gray;
+
+  backdrop-filter: blur(20px);
+}
+
+.window_header {
+  height: rem(44);
+  padding: 0 rem(12);
+
+  @include flex(space-between, center, rem(10));
+  user-select: none;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.window_title {
+  @include text-s-bold;
+  // color: $font-gray;
+  color: $font-white;
+  max-width: 70%;
+  @include ellipsis;
+}
+
+.window_actions {
+  @include flex(flex-end, center, rem(8));
+
+  button {
+    width: rem(34);
+    height: rem(28);
+    border-radius: $radius-sm;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: $font-white;
+
+    @include flex(center, center);
+
+    transition: background-color 0.15s ease, transform 0.15s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    //react-icon 크기 설정 
+    svg {
+      width: rem(16);
+      height: rem(16);
+      display: block;
+      // color: yellow;
+    }
+  }
+
+  // 닫기 버튼 강조
+  .window_close {
+    &:hover {
+      background: rgba(255, 80, 80, 0.22);
+      border-color: rgba(255, 80, 80, 0.25);
+    }
+  }
+}
+
+.window_body {
+  height: calc(100% - #{rem(44)});
+  padding: rem(16);
+
+  // 창 내부 컨텐츠 기본 텍스트 톤
+  color: $font-white70;
+}
