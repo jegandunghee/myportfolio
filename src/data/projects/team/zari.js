@@ -17,7 +17,7 @@ export const zariData = {
     "#State_Management",
   ],
   links: {
-    site: "https://...",
+    site: "https://jegandunghee.github.io/ZIO-zari-it-o/#/",
     github: "https://github.com/jegandunghee/ZIO-zari-it-o",
   },
   // 담당 역할
