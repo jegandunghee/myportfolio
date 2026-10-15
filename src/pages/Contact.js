@@ -7,7 +7,7 @@ import "./contact.scss";
 const CONTACT_INFO = {
   email: "jeahee3161@naver.com",
   github: "https://github.com/jegandunghee",
-  notion: "https://app.notion.com/p/1-d676d66d14a282be8b8e81a5f614df08?source=copy_link",
+  notion: "https://app.notion.com/p/UI-UX-d676d66d14a282be8b8e81a5f614df08?source=copy_link",
 };
 
 const Contact = () => {
