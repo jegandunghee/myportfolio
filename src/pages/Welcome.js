@@ -15,23 +15,21 @@ const Welcome = () => {
 
         {/* 지원 직무 */}
         <p className="welcome_role">
-          Frontend Developer · Web Publisher
+          Web Desiger · Web Publisher
         </p>
 
         {/* 교육과정 기반 설명 */}
         <p className="welcome_desc">
-          UI/UX 기반 웹 퍼블리싱 및 프론트엔드 과정을 수료하며
+          UI/UX 기반 웹디자인 및 웹퍼블리싱 과정을 수료하며
           {"\n"}
           구현 중심으로 작업한 결과물을 정리했습니다.
         </p>
 
         {/* 이 포트폴리오의 목적 */}
         <p className="welcome_desc">
-          이 공간은 단순히 결과물만 나열하는 것이 아니라,
+          사용자의 시선 흐름을 고려한 UI 설계와
           {"\n"}
-          사용자가 직접 탐색하며 구조와 인터랙션을 경험할 수 있도록
-          {"\n"}
-          OS 데스크탑 형태로 설계되었습니다.
+          완성도 높은 웹 인터페이스를 만들어가고있습니다.
         </p>
 
         {/* CTA (기능 없음) */}
