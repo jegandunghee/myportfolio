@@ -23,7 +23,6 @@ export const closecallData = {
   ],
   links: {
     site: "https://close-call-three.vercel.app",
-    demo: "https://close-call-three.vercel.app",
     github: "https://github.com/jegandunghee/close-call",
   },
   images: {
