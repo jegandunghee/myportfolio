@@ -15,7 +15,7 @@ const Welcome = () => {
 
         {/* 지원 직무 */}
         <p className="welcome_role">
-          Web Desiger · Web Publisher
+          Web Designer · Web Publisher
         </p>
 
         {/* 교육과정 기반 설명 */}
