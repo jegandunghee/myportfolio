@@ -222,7 +222,7 @@ const PersonalLayout = ({ item }) => (
     {/* 주요 기능 및 아키텍처 */}
     {item.features && item.features.length > 0 && (
       <section className="pDetail__sec">
-        <h3 className="pDetail__secTitle">주요 기능 및 아키텍처</h3>
+        <h3 className="pDetail__secTitle">주요 기능 및 구현 포인트</h3>
         <div className="pDetail__featureList">
           {item.features.map((f, idx) => (
             <div key={idx} className="pDetail__feature">
