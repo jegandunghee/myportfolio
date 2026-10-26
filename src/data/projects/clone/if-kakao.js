@@ -22,7 +22,6 @@ export const kakaoData = {
   ],
   links: {
     site: "https://if-kakao.vercel.app",
-    demo: "https://if-kakao.vercel.app",
     github: "https://github.com/jegandunghee/ifKakao",
   },
   description:

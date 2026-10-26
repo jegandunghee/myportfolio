@@ -79,7 +79,7 @@ const TeamLayout = ({ item }) => (
       )}
     </div>
 
-    {/* 담당 역할 (Card UI) */}
+    {/* 담당 역할 */}
     <section className="pDetail__sec">
       <h3 className="pDetail__secTitle">담당 역할</h3>
       <div className="pDetail__cardGrid">
@@ -163,11 +163,11 @@ const PersonalLayout = ({ item }) => (
           {item.team && <span><FiUser size={15} className="pDetail__metaIcon" /> {item.team}</span>}
         </div>
 
-        {/* 링크 액션 버튼들 (데모 & GitHub) */}
+        {/* 링크 액션 버튼들 (사이트 & GitHub) */}
         <div className="pDetail__links">
-          {(item.links?.demo || item.links?.site) && (
+          {item.links?.site && (
             <a
-              href={item.links.demo || item.links.site}
+              href={item.links.site}
               target="_blank"
               rel="noreferrer"
               className="pDetail__btn pDetail__btn--primary"
@@ -219,7 +219,7 @@ const PersonalLayout = ({ item }) => (
       </section>
     )}
 
-    {/* 주요 기능 및 아키텍처 */}
+    {/* 주요 기능 및 구현 포인트 */}
     {item.features && item.features.length > 0 && (
       <section className="pDetail__sec">
         <h3 className="pDetail__secTitle">주요 기능 및 구현 포인트</h3>
@@ -287,14 +287,14 @@ const ShowcaseLayout = ({ item }) => (
 
         {/* 액션 링크 */}
         <div className="pDetail__links">
-          {(item.links?.demo || item.links?.site) && (
+          {item.links?.site && (
             <a
-              href={item.links.demo || item.links.site}
+              href={item.links.site}
               target="_blank"
               rel="noreferrer"
               className="pDetail__btn pDetail__btn--primary"
             >
-              <FiExternalLink size={16} /> 사이트 바로가기
+              <FiExternalLink size={16} /> 링크
             </a>
           )}
           {item.links?.github && (
@@ -311,7 +311,7 @@ const ShowcaseLayout = ({ item }) => (
       </div>
     </section>
 
-    {/* 2. 메인 시네마틱 데스크톱 뷰포트 (Wide Screen Stage) */}
+    {/* 2. 메인 시네마틱 데스크톱 뷰포트 */}
     <section className="pDetail__showcaseStage" aria-label="시네마틱 데스크톱 프리뷰">
       <div className="pDetail__browserFrame">
         <div className="pDetail__browserBar">
@@ -421,14 +421,14 @@ const LearningLabLayout = ({ item }) => (
 
         {/* 액션 링크 */}
         <div className="pDetail__links">
-          {(item.links?.demo || item.links?.site) && (
+          {item.links?.site && (
             <a
-              href={item.links.demo || item.links.site}
+              href={item.links.site}
               target="_blank"
               rel="noreferrer"
               className="pDetail__btn pDetail__btn--primary"
             >
-              <FiExternalLink size={16} /> 데모 바로가기
+              <FiExternalLink size={16} /> 링크
             </a>
           )}
           {item.links?.github && (
@@ -444,7 +444,7 @@ const LearningLabLayout = ({ item }) => (
         </div>
       </div>
 
-      {/* 2. 중단 프로젝트 개요 설명 (description) */}
+      {/* 2. 중단 프로젝트 개요 설명 */}
       {item.description && (
         <div className="pDetail__labDescBox">
           <h3 className="pDetail__labSecTitle">프로젝트 개요</h3>
@@ -452,10 +452,10 @@ const LearningLabLayout = ({ item }) => (
         </div>
       )}
 
-      {/* 3. 하단 주요 사용자 경험 및 인터랙션 포인트 (세로 라인 리스트) */}
+      {/* 3. 하단 주요 기능 및 구현 포인트 (세로 라인 리스트) */}
       {item.uxHighlights && item.uxHighlights.length > 0 && (
         <div className="pDetail__labHighlights">
-          <h3 className="pDetail__labSecTitle">주요 사용자 경험 및 인터랙션 포인트</h3>
+          <h3 className="pDetail__labSecTitle">주요 기능 및 구현 포인트</h3>
           <div className="pDetail__labHighlightList">
             {item.uxHighlights.map((hl, idx) => (
               <div key={idx} className="pDetail__labHighlightItem">
@@ -475,7 +475,7 @@ const LearningLabLayout = ({ item }) => (
 
 const CloneLayout = ({ item }) => (
   <div className="pDetail__matrix">
-    {/* 1. 상단 인라인 헤더 바 (Top Meta Strip) */}
+    {/* 1. 상단 인라인 헤더 바 */}
     <section className="pDetail__matrixHeader">
       <div className="pDetail__matrixTitleCol">
         {item.badge && <span className="pDetail__badge">{item.badge}</span>}
@@ -505,11 +505,11 @@ const CloneLayout = ({ item }) => (
       </div>
 
       {/* 우측 인라인 액션 링크 버튼들 */}
-      {(item.links?.demo || item.links?.site || item.links?.github) && (
+      {(item.links?.site || item.links?.github) && (
         <div className="pDetail__links pDetail__matrixLinks">
-          {(item.links?.demo || item.links?.site) && (
+          {item.links?.site && (
             <a
-              href={item.links.demo || item.links.site}
+              href={item.links.site}
               target="_blank"
               rel="noreferrer"
               className="pDetail__btn pDetail__btn--primary"

@@ -22,7 +22,6 @@ export const airbnbData = {
   ],
   links: {
     site: "https://airbnb-beige-zeta.vercel.app",
-    demo: "https://airbnb-beige-zeta.vercel.app",
     github: "https://github.com/jegandunghee/Airbnb_Clone",
   },
   description:

@@ -3,7 +3,7 @@
 
 // 반응형 폰트 mixin설정 
 @mixin _size($name) {
-  // '지도($size-map)'에서 '이름($name)'에 맞는 정보를 통째로 가져옵니다.
+  // $size-map에서 $name에 맞는 정보를 가져옴.
   $info: map-get($size-map, $name); 
   
   font-size: rem(map-get($info, pc)); // 데스크탑 사이즈

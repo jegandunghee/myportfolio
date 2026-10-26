@@ -28,7 +28,7 @@ export const closecallData = {
   images: {
     mobile: closecallMobile,
   },
-  // UI/UX 설계 및 퍼블리싱 포인트 (Design Highlights)
+  // UI/UX 설계 및 퍼블리싱 포인트
   designPoints: [
     {
       title: "배달 앱 99% 모방 UI 및 옵션 바텀시트 설계",
@@ -43,18 +43,18 @@ export const closecallData = {
       desc: "0원 가상 결제 완료 후 [접수 ➔ 조리 ➔ 배달] 상태가 실시간으로 전이되는 동적 인터랙션을 구현하여, 충동 결제 욕구를 안전하게 완화하고 최종 방어 성공 영수증 적재.",
     },
   ],
-  // 주요 기능 및 아키텍처 (Key Features & Architecture)
+  // 주요 기능 및 구현 포인트
   features: [
     {
-      title: "단일화 영수증 테이블 설계 (close_call_orders)",
-      desc: "다중 옵션 선택 데이터를 프론트엔드에서 단일 규격 문자열로 결합 후 1회 적재하여, 불필요한 트랜잭션 에러 위험과 테이블 조인 오버헤드를 차단하고 빠른 렌더링 성능 확보.",
+      title: "단일화 영수증 테이블 설계",
+      desc: "메뉴 옵션 선택 데이터를 앱에서 하나의 문장으로 합쳐 한 번에 저장하여, 저장 중 오류가 생길 가능성과 여러 표를 이어 붙이는 과정을 줄이고 화면이 빠르게 표시되도록 함.",
     },
     {
       title: "DB 트리거 기반 유저 프로필 자동 동기화",
       desc: "Supabase Auth 회원가입 시 PostgreSQL 트리거 함수를 통해 프로필 레코드가 원자적으로 생성되도록 설계하여 계정 간 불일치 원천 방지.",
     },
   ],
-  // 트러블슈팅 (Troubleshooting)
+  // 트러블슈팅
   troubleshooting: [
     {
       issue: "메뉴 상세 옵션 바텀시트와 하단 결제 바의 겹침 현상 해결",

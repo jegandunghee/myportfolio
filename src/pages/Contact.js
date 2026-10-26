@@ -3,7 +3,6 @@ import { useState } from "react";
 import { FiMail, FiCopy, FiCheck, FiGithub, FiFileText, FiArrowUpRight } from "react-icons/fi";
 import "./contact.scss";
 
-// 안내: 본인의 실제 이메일 및 링크로 손쉽게 수정하실 수 있습니다.
 const CONTACT_INFO = {
   email: "jeahee3161@naver.com",
   github: "https://github.com/jegandunghee",

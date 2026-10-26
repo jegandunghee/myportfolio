@@ -20,11 +20,6 @@ export const mydayData = {
     "#LocalStorage",
     "#Axios",
   ],
-  links: {
-    site: "",
-    demo: "",
-    github: "",
-  },
   description:
     "생산성과 일상 루틴 관리를 돕는 맞춤형 대시보드 웹 애플리케이션입니다. 브라우저 내장 Web API(Geolocation, LocalStorage)와 CSS Glassmorphism 디자인을 조화롭게 적용하여 외부 라이브러리 의존성을 낮추고 가벼운 구동성과 세련된 사용자 경험을 구현했습니다.",
   mockupImg: dashboardDesk,

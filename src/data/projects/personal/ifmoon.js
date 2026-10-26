@@ -46,8 +46,8 @@ export const ifmoonData = {
       phaseNumber: "03",
       step: "03. Morning",
       name: "Morning",
-      keywords: ["탄성 반응", "Glass UI"],
-      desc: "코드가 탄성(elastic) 스프링 반응을 지닌 Glassmorphism UI로 치환되는 인터페이스",
+      keywords: ["탄성 반응", "글래스모피즘 UI"],
+      desc: "코드가 탄성 스프링 반응을 지닌 글래스모피즘 UI로 치환되는 인터페이스",
     },
   ],
 };

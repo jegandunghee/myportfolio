@@ -68,7 +68,7 @@
 }
 
 // ============================================
-// 팀 프로젝트 레이아웃 (TeamLayout)
+// 팀 프로젝트 레이아웃
 // ============================================
 .pDetail__team {
   @include flex($just: flex-start, $align: flex-start, $gap: rem(42), $dir: column); 
@@ -978,7 +978,7 @@
   }
 }
 
-// 1. 상단 인라인 헤더 바 (Top Meta Strip)
+// 1. 상단 인라인 헤더 바
 .pDetail__matrixHeader {
   display: flex;
   justify-content: space-between;
@@ -1043,7 +1043,7 @@
   }
 }
 
-// 2. 중앙 풀 와이드 목업 스테이지 (Center Mockup Stage)
+// 2. 중앙 풀 와이드 목업 스테이지
 .pDetail__matrixStage {
   width: 100%;
   display: flex;

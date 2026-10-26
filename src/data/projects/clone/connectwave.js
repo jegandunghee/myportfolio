@@ -22,11 +22,10 @@ export const connectwaveData = {
   ],
   links: {
     site: "https://connectwave-amber.vercel.app",
-    demo: "https://connectwave-amber.vercel.app",
     github: "https://github.com/jegandunghee/connectwave",
   },
   description:
-    "이커머스 전문 기업 커넥트웨이브(ConnectWave)의 공식 웹사이트를 React 기반으로 재구성한 클론 프로젝트입니다. 따뜻한 크림 베이지 톤으로 디자인을 리팩토링하고, GSAP ScrollTrigger를 고도화하여 백그라운드 영상 스케일 변환, 세로에서 가로로 자연스럽게 이어지는 복합 핀(Pin) 스크롤, 무한 루프 마키 애니메이션을 매끄럽게 구현했습니다.",
+    "이커머스 전문 기업 커넥트웨이브(ConnectWave)의 공식 웹사이트를 React 기반으로 재구성한 클론 프로젝트입니다. 따뜻한 크림 베이지 톤으로 디자인을 리팩토링하고, GSAP ScrollTrigger를 고도화하여 백그라운드 영상 스케일 변환, 세로에서 가로로 자연스럽게 이어지는 복합 스크롤, 무한 루프 마키 애니메이션을 매끄럽게 구현했습니다.",
   mockupImg: connectwaveDesk,
   images: {
     desk: connectwaveDesk,
@@ -39,8 +38,8 @@ export const connectwaveData = {
     },
     {
       num: "02",
-      title: "세로에서 가로로 이어지는 복합 핀 스크롤",
-      desc: "특정 섹션 진입 시 화면을 핀(pin: true)으로 고정하고 세로 스크롤 값을 가로 이동값(x)으로 치환하여, 끊김 없이 부드럽게 이어지는 가로 브라우징 인터랙션 구현.",
+      title: "세로에서 가로로 이어지는 복합 스크롤",
+      desc: "특정 섹션에 들어서면 화면을 그 자리에 멈춰 두고, 아래로 내리는 스크롤을 옆으로 넘어가는 움직임으로 바꿔서 끊김 없이 부드럽게 이어지는 가로 브라우징 인터랙션 구현.",
     },
     {
       num: "03",
@@ -61,8 +60,8 @@ export const connectwaveData = {
     },
     {
       num: "02",
-      title: "세로에서 가로로 이어지는 복합 핀 스크롤",
-      desc: "특정 섹션 진입 시 화면을 핀(pin: true)으로 고정하고 세로 스크롤 값을 가로 이동값(x)으로 치환하여, 끊김 없이 부드럽게 이어지는 가로 브라우징 인터랙션 구현.",
+      title: "세로에서 가로로 이어지는 복합 스크롤",
+      desc: "특정 섹션에 들어서면 화면을 그 자리에 멈춰 두고, 아래로 내리는 스크롤을 옆으로 넘어가는 움직임으로 바꿔서 끊김 없이 부드럽게 이어지는 가로 브라우징 인터랙션 구현.",
     },
     {
       num: "03",
